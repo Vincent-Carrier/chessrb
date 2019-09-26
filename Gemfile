@@ -15,7 +15,9 @@ group :development do
   gem "solargraph"
   gem "awesome_print", "~> 1.8"
   gem "pry", "~> 0.12.2"
+  gem "pry-coolline", "~> 0.2.5"
+  gem "pry-byebug", "~> 3.7"
+  gem "pry-rescue", "~> 1.5"
 end
 
-gem "pry-coolline", "~> 0.2.5", :group => :development
-gem "pry-byebug", "~> 3.7", :group => :development
+

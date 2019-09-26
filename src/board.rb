@@ -8,6 +8,16 @@ class Board
   def initialize arr, history=[]
     @arr = arr
     @history = history
+    @black_pieces, @white_pieces = [], []
+    @arr.each.with_index do |row, y|
+      row.each.with_index do |piece, x|
+        if piece
+          piece.sq = Sq x,y
+          pieces = piece.color == :white ? @white_pieces : @black_pieces
+          pieces << piece
+        end
+      end
+    end
   end
 
   def self.starting_position
@@ -16,7 +26,7 @@ class Board
     white_pieces = pieces.map(&:new).each { |p| p.color = :white }
     black_pawns = Array.new(8, Pawn.new(:black))
     white_pawns = Array.new(8, Pawn.new(:white))
-    empty = Array.new(4, Array.new(8))
+    empty = Array.new(4) { Array.new 8 }
     arr = [black_pieces, black_pawns, white_pawns, white_pieces]
     arr[2...2] = empty
     Board.new arr
@@ -30,12 +40,10 @@ class Board
     end
   end
 
-  def []= i, v
-    case i
-    when String then self[Sq(i)] = v
-    when Sq then @arr[i.y][i.x] = v
-    else fail
-    end
+  def []= sq, v
+    case sq; when String then sq = Sq(sq); end
+    @arr[sq.y][sq.x] = v
+    piece.sq = sq if v.is_a? Piece
   end
 
   def squares squares
@@ -46,7 +54,7 @@ class Board
 
   def inspect
     "\n" + @arr.map do |row|
-      row.map { |p| p ? p.to_s : '_' }.join
+      row.map { |p| p ? p.to_char : '_' }.join
     end.join("\n")
   end
 end
