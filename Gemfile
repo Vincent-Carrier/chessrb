@@ -5,9 +5,7 @@ source "https://rubygems.org"
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
 group :test do
-  gem "minitest-reporters", "~> 1.3"
-  gem "color_pound_spec_reporter", "~> 0.0.9"
-  gem 'minitest'
+  gem "rspec", "~> 3.8"
 end
 
 group :development do
@@ -21,3 +19,6 @@ group :development do
 end
 
 
+
+
+gem "coderay", "~> 1.1", :group => :test

@@ -1,7 +1,7 @@
 require_relative 'piece'
 
 class RangedPiece < Piece
-  def range from
+  def range from=sq
     DIRECTIONS.flat_map do |dir|
       UNIT_VEC.flat_map do |vec|
         (0..7).each do |i|

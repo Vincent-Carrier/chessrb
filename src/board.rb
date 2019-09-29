@@ -43,13 +43,13 @@ class Board
   def []= sq, v
     case sq; when String then sq = Sq(sq); end
     @arr[sq.y][sq.x] = v
-    piece.sq = sq if v.is_a? Piece
+    v.sq = sq if v.is_a? Piece
   end
 
   def squares squares
     str = board.inspect.lines
     squares.each { |sq| str[sq.y][sq.x] = 'X' }
-    str.join '\n'
+    str.join('\n').chomp
   end
 
   def inspect

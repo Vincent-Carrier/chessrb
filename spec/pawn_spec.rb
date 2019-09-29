@@ -1,5 +1,5 @@
 require_relative '../src/pawn'
-require_relative 'test_helpers'
+require_relative 'spec_helpers'
 
 describe "" do
   it "" do

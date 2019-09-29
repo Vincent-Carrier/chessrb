@@ -1,11 +1,11 @@
 {
   "src/*.rb": {
-    "alternate": "test/{}_test.rb",
+    "alternate": "spec/{}_spec.rb",
     "type": "source"
   },
-  "test/*_test.rb": {
+  "spec/*_spec.rb": {
     "alternate": "src/{}.rb",
-    "type": "test"
+    "type": "spec"
   },
   "*": {"make": "rake"}
 }
