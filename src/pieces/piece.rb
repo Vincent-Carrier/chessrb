@@ -1,8 +1,8 @@
 require_relative '../square.rb'
 
 class Piece < Struct.new(:color, :sq)
-  DIRECTIONS = [Vec(1,1), Vec(-1,-1),
-                Vec(1,-1), Vec(-1,1)]
+  DIRECTIONS = [Vec(1, 1), Vec(-1, -1),
+                Vec(1, -1), Vec(-1, 1)]
 
   COLORS = [:black, :white]
 

@@ -1,12 +1,20 @@
-require_relative '../src/large_pieces'
+require_relative '../src/pieces/large_pieces'
 require_relative 'spec_helpers'
 
-describe "A bishop" do
-  subject(:bishop) { Bishop.new :white }
-  board = Board.empty
-  board['e4']
+fdescribe 'A bishop on e4' do
+  let(:bishop) { Bishop.new :white, Sq('e4') }
 
-  it "moves diagonally" do
-
+  it 'moves diagonally' do
+    expected = <<~EOF
+      X_______
+      _X_____X
+      __X___X_
+      ___X_X__
+      ________
+      ___X_X__
+      __X___X_
+      _X_____X
+    EOF
+    assert_range bishop, expected
   end
 end

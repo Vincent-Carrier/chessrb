@@ -3,8 +3,8 @@ require_relative '../src/board'
 
 describe 'squares can be integer tuples or strings' do
   it 'converts strings to squares' do
-    expect(Sq('a8')).to eq Sq(0,0)
-    expect(Sq('h1')).to eq Sq(7,7)
+    expect(Sq('a8')).to eq Sq(0, 0)
+    expect(Sq('h1')).to eq Sq(7, 7)
   end
 
   it 'converts squares to strings' do
@@ -14,7 +14,7 @@ describe 'squares can be integer tuples or strings' do
 
   it 'can assign a piece to a square' do
     board = Board.empty
-    board[Sq(1,2)] = Pawn.new :white
+    board[Sq(1, 2)] = Pawn.new :white
     expected = <<~EOF
       ________
       ________

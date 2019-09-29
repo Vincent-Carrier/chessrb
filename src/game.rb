@@ -12,7 +12,7 @@ class Game
   def active_player
     @history.size.odd? ? :black : :white
   end
-  
+
   def legal? move
     true
   end
