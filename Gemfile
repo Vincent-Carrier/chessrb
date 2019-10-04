@@ -18,5 +18,7 @@ group :development do
   gem 'pry-byebug', '~> 3.7'
   gem 'pry-rescue', '~> 1.5'
   gem 'pry-stack_explorer'
+  gem 'pry-inline'
+  gem 'pry-doc'
 end
 

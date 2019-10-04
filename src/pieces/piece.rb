@@ -1,13 +1,16 @@
 require_relative '../square.rb'
+require 'matrix'
 
 class Piece < Struct.new(:color, :sq)
-  DIRECTIONS = [Vec(1, 1), Vec(-1, -1),
-                Vec(1, -1), Vec(-1, 1)]
+  ROT_MATRIX = Matrix[[0,-1], [1,0]]
 
   COLORS = [:black, :white]
 
-  def each_direction
-    fail unless self.respond_to? :UNIT_VEC
+  def each_direction unit_vec
+    directions = 3.times.reduce([unit_vec]) do |arr, _|
+      arr << (ROT_MATRIX * arr.last)
+    end
+    directions.map { |dir| yield dir }
   end
 
   def to_char

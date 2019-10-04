@@ -1,25 +1,30 @@
 require_relative 'piece'
+require 'matrix'
 
 class RangedPiece < Piece
-  def range(from = nil)
-    DIRECTIONS.flat_map do |dir|
+  def _range(unit_vec)
+    each_direction(unit_vec) do |dir|
       (1..7).map do |i|
-        (from ? from : sq) + ((self.class::UNIT_VEC * dir) * i)
+        sq + (dir * i)
       end.take_while(&:inside?)
-    end
+    end.to_a.flatten
   end
 end
 
 class Bishop < RangedPiece
-  UNIT_VEC = Vec(1, 1)
+  def range
+    _range Vector[1,1]
+  end
 end
 
 class Rook < RangedPiece
-  UNIT_VEC = Vec(0, 1)
+  def range
+    _range Vector[0,1]
+  end
 end
 
 class Queen < RangedPiece
-  UNIT_VEC = Vec(1, 1)
-  DIRECTIONS = DIRECTIONS.dup << [Vec(0,1), Vec(1,0),
-                                  Vec(0,-1), Vec(-1,0)]
+  def range
+    _range(Vector[0,1]) + _range(Vector[1,1])
+  end
 end
