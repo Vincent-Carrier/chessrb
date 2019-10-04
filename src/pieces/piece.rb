@@ -10,7 +10,11 @@ class Piece < Struct.new(:color, :sq)
     directions = 3.times.reduce([unit_vec]) do |arr, _|
       arr << (ROT_MATRIX * arr.last)
     end
-    directions.map { |dir| yield dir }
+    if block_given?
+      directions.map { |dir| yield dir }
+    else
+      directions
+    end
   end
 
   def to_char
