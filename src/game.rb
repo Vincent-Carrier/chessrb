@@ -1,12 +1,13 @@
 class Game
+  attr_reader :board, :history
+
   def initialize board, history
     @board = board
     @history = history
   end
 
   def self.new_game
-    @board = Board.starting_position
-    @history = []
+    Game.new(Board.starting_position, [])
   end
 
   def active_player
@@ -14,10 +15,22 @@ class Game
   end
 
   def legal? move
-    true
+    case move
+    when StandardMove
+      piece = @board[move.from]
+      return false unless piece&.color == active_player
+      piece.possible_moves(@board).include? move.to
+    when CastleMove
+      false
+    end
   end
 
   def execute move
+    case move
+    when StandardMove
+      @board[move.to] = @board[move.from]
+      @board[move.from] = nil
+    end
     @history.push move
   end
 
@@ -26,13 +39,13 @@ class Game
   end
 end
 
-if __FILE__ == $0
+if $PROGRAM_NAME == __FILE__
   game = Game.new
   until game.over?
     color = game.active_player.to_s.capitalize
     answer = gets "It's #{color}'s turn to play: "
     case answer
-    when /[a-h][1-8]/ then move = Move.parse answer
+    when Move.VALID_REGEX then move = Move.parse answer
     when 'undo'
       @history.pop
       next
@@ -43,15 +56,15 @@ if __FILE__ == $0
     if game.legal? move
       game.execute move
     else
-      puts "Not a legal move"
+      puts 'Not a legal move'
     end
   end
 
   case game.outcome
   when :white
-    puts "White wins!"
+    puts 'White wins!'
   when :black
-    puts "Black takes the game!"
+    puts 'Black takes the game!'
   when :tie
     puts "It's a tie!"
   end

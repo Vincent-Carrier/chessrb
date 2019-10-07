@@ -1,5 +1,29 @@
-inherit_from: .rubocop_todo.yml
+AllCops:
+  TargetRubyVersion: 2.7
 
-require:
-  - rubocop-rspec
+Layout:
+  Severity: refactor
 
+Naming:
+  Severity: refactor
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/MethodDefParentheses:
+  Enabled: false
+
+Style/Semicolon:
+  Enabled: false
+
+Style/SignalException:
+  Enabled: false
+
+Style/SingleLineMethods:
+  Enabled: false
+
+Lint/Debugger:
+  Enabled: false

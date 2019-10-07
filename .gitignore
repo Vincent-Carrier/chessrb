@@ -1,2 +1,3 @@
-**/.undodir
-Session.vim
+.undodir
+.rubocop_todo.yml
+spec/examples.txt

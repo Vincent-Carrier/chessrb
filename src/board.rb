@@ -12,7 +12,7 @@ class Board
     @arr.each.with_index do |row, y|
       row.each.with_index do |piece, x|
         if piece
-          piece.sq = Sq x, y
+          piece.sq = Vector[x,y]
           pieces = piece.color == :white ? @white_pieces : @black_pieces
           pieces << piece
         end
@@ -24,8 +24,8 @@ class Board
     pieces = [Rook, Knight, Bishop, Queen, King, Bishop, Knight, Rook]
     black_pieces = pieces.map(&:new).each { |p| p.color = :black }
     white_pieces = pieces.map(&:new).each { |p| p.color = :white }
-    black_pawns = Array.new(8, Pawn.new(:black))
-    white_pawns = Array.new(8, Pawn.new(:white))
+    black_pawns = Array.new(8) { Pawn.new :black }
+    white_pawns = Array.new(8) { Pawn.new :white }
     empty = Array.new(4) { Array.new 8 }
     arr = [black_pieces, black_pawns, white_pawns, white_pieces]
     arr[2...2] = empty
@@ -34,9 +34,8 @@ class Board
 
   def [] i
     case i
-    when String then self[Sq(i)]
-    when Sq then @arr[i.y][i.x]
-    else fail
+    when String then self[Sq i]
+    when Vector then @arr[i.y][i.x]
     end
   end
 
@@ -53,7 +52,7 @@ class Board
   end
 
   def inspect
-    @arr.map do |row|
+    "\n" + @arr.map do |row|
       row.map { |p| p ? p.to_char : '_' }.join
     end.join("\n")
   end
