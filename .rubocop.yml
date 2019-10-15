@@ -5,7 +5,7 @@ Layout:
   Severity: refactor
 
 Naming:
-  Severity: refactor
+  Enabled: false
 
 Style/Documentation:
   Enabled: false
@@ -23,6 +23,9 @@ Style/SignalException:
   Enabled: false
 
 Style/SingleLineMethods:
+  Enabled: false
+
+Style/PerlBackrefs:
   Enabled: false
 
 Lint/Debugger:

@@ -1,7 +1,3 @@
-Dir['src/**/*.rb'].each { |f| require_relative f }
-require_relative 'spec/spec_helpers'
+Dir['src/**/*.rb'].each { |f| puts f; require f }
 
-require 'pry'; .pry
-bo = Board.starting_position
-empty_board = Board.empty
-bishop = Bishop.new :white, Sq('e4')
+game = CLIGame.new
