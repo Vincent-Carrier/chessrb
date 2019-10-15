@@ -1,5 +1,5 @@
-require_relative '../../src/pieces/pawn'
-require_relative '../spec_helpers'
+require './src/pieces/pawn'
+require './spec_helpers'
 
 RSpec.describe Pawn do
   context 'A white pawn on e4' do
@@ -7,14 +7,14 @@ RSpec.describe Pawn do
 
     it 'moves towards the opposite side' do
       expected = <<~EOF
-        ________
-        ________
-        ________
-        ____X___
-        ________
-        ________
-        ________
-        ________
+        ········
+        ········
+        ········
+        ····X···
+        ········
+        ········
+        ········
+        ········
       EOF
       assert_range pawn, expected
     end

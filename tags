@@ -1,0 +1,76 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+<<	src/board.rb	/^  def << piece$/;"	f	class:Board
+==	src/pieces/piece.rb	/^  def == o$/;"	f
+AmbiguousMove	src/move.rb	/^class AmbiguousMove < Move; end$/;"	c
+Bishop	src/pieces/large_pieces.rb	/^class Bishop < RangedPiece$/;"	c	class:RangedPiece._range
+Board	spec/spec_helpers.rb	/^class Board$/;"	c
+Board	src/board.rb	/^class Board$/;"	c
+CLIGame	src/cli_game.rb	/^class CLIGame < Game$/;"	c
+CastleMove	src/move.rb	/^class CastleMove < Move$/;"	c
+Game	.undodir/%home%vincent%chessrb%src%game.rb	/^class Game/;"	c
+Game	src/game.rb	/^class Game$/;"	c
+King	src/pieces/king.rb	/^class King < Piece$/;"	c
+Knight	src/pieces/knight.rb	/^class Knight < Piece$/;"	c
+Move	src/move.rb	/^class Move; end$/;"	c
+Move5	.undodir/%home%vincent%chessrb%src%move.rb	/^class Move5_Ð/;"	c
+Move5	.undodir/%home%vincent%chessrb%src%move.rb	/^class Move5_Ð/;"	c	class:Move5
+Pawn	src/pieces/pawn.rb	/^class Pawn < Piece$/;"	c
+Piece	src/pieces/piece.rb	/^class Piece$/;"	c
+Queen	src/pieces/large_pieces.rb	/^class Queen < RangedPiece$/;"	c	class:RangedPiece._range
+RangedPiece	src/pieces/large_pieces.rb	/^class RangedPiece < Piece$/;"	c
+Rook	src/pieces/large_pieces.rb	/^class Rook < RangedPiece$/;"	c	class:RangedPiece._range
+Sq	src/square.rb	/^def Sq s$/;"	f
+StandardMove	src/move.rb	/^class StandardMove < Move$/;"	c
+Vector	src/square.rb	/^class Vector$/;"	c
+[]	.undodir/%home%vincent%chessrb%src%board.rb	/^  def [] i/;"	f
+[]	.undodir/%home%vincent%chessrb%src%board.rb	/^  def [] i/;"	f	class:[]
+[]	src/board.rb	/^  def [] i$/;"	f	class:Board
+[]=	src/board.rb	/^  def []= sq, v$/;"	f	class:Board
+_range	src/pieces/large_pieces.rb	/^  def _range(unit_vec)$/;"	f	class:RangedPiece
+active_player	src/game.rb	/^  def active_player$/;"	f	class:Game
+assert_possible_moves	spec/spec_helpers.rb	/^def assert_possible_moves piece, board, exp$/;"	f
+assert_range	spec/spec_helpers.rb	/^def assert_range piece, exp$/;"	f
+compare_board_strings	spec/spec_helpers.rb	/^def compare_board_strings a, e$/;"	f
+each_direction	src/pieces/piece.rb	/^  def each_direction unit_vec$/;"	f
+each_piece	src/board.rb	/^  def each_piece color$/;"	f	class:Board
+empty	spec/spec_helpers.rb	/^  def self.empty$/;"	F	class:Board
+en_passant	src/pieces/pawn.rb	/^  def en_passant; end$/;"	f	class:Pawn
+execute	src/game.rb	/^  def execute move$/;"	f	class:Game
+execute!	src/cli_game.rb	/^  def execute! str$/;"	f
+first_row?	src/pieces/pawn.rb	/^  def first_row?$/;"	f	class:Pawn
+initialize	src/board.rb	/^  def initialize arr, history = []$/;"	f	class:Board
+initialize	src/game.rb	/^  def initialize board = Board.starting_position, history = []$/;"	f	class:Game
+initialize	src/move.rb	/^  def initialize from, to$/;"	f	class:StandardMove
+initialize	src/move.rb	/^  def initialize side$/;"	f	class:CastleMove
+initialize	src/pieces/pawn.rb	/^  def initialize color, sq = nil$/;"	f	class:Pawn
+initialize	src/pieces/piece.rb	/^  def initialize color = nil, sq = nil$/;"	f	class:Piece
+inside?	src/square.rb	/^  def inside?$/;"	f	class:Vector
+inspect	src/board.rb	/^  def inspect$/;"	f	class:Board
+large_piece_move	src/cli_game.rb	/^  def large_piece_move char, sq$/;"	f	class:CLIGame
+legal?	src/game.rb	/^  def legal? move$/;"	f	class:Game
+opposite_color	src/pieces/piece.rb	/^  def opposite_color$/;"	f
+over?	src/game.rb	/^  def over?$/;"	f	class:Game
+parse	src/cli_game.rb	/^  def parse str$/;"	f	class:CLIGame
+possible_moves	src/pieces/knight.rb	/^  def possible_moves board$/;"	f	class:Knight
+possible_moves	src/pieces/large_pieces.rb	/^  def possible_moves board$/;"	f	class:RangedPiece._range
+possible_moves	src/pieces/pawn.rb	/^  def possible_moves board$/;"	f	class:Pawn
+range	src/pieces/knight.rb	/^  def range$/;"	f	class:Knight
+range	src/pieces/large_pieces.rb	/^  def range$/;"	f	class:RangedPiece._range.Bishop
+range	src/pieces/large_pieces.rb	/^  def range$/;"	f	class:RangedPiece._range.Queen
+range	src/pieces/large_pieces.rb	/^  def range$/;"	f	class:RangedPiece._range.Rook
+range	src/pieces/pawn.rb	/^  def range$/;"	f	class:Pawn
+sq=	src/pieces/piece.rb	/^  def sq=(v)$/;"	f	class:Piece
+squares	spec/spec_helpers.rb	/^  def self.squares squares$/;"	F	class:Board
+starting_position	src/board.rb	/^  def self.starting_position$/;"	F	class:Board
+to_char	src/pieces/piece.rb	/^  def to_char$/;"	f
+to_coord	src/square.rb	/^  def to_coord$/;"	f	class:Vector
+to_s	.undodir/%home%vincent%chessrb%src%move.rb	/^  def to_sõ/;"	f	class:Move5.Move5
+to_s	src/move.rb	/^  def to_s$/;"	f	class:CastleMove
+to_s	src/move.rb	/^  def to_s$/;"	f	class:StandardMove
+x	src/square.rb	/^  def x; self[0]; end$/;"	f	class:Vector
+y	src/square.rb	/^  def y; self[1]; end$/;"	f	class:Vector

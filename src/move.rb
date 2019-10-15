@@ -1,14 +1,6 @@
 require_relative 'square'
 
-class Move
-  def self.parse str
-    case str
-    when /([a-h][1-8])-([a-h][1-8])/ then StandardMove.new(Sq($1), Sq($2))
-    when /O-O/ then CastleMove.new :king
-    when /O-O-O/ then CastleMove.new :queen
-    end
-  end
-end
+class Move; end
 
 class StandardMove < Move
   attr_reader :from, :to
@@ -32,3 +24,5 @@ class CastleMove < Move
     @side == :king ? 'O-O' : 'O-O-O'
   end
 end
+
+class AmbiguousMove < Move; end

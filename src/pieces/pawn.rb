@@ -13,7 +13,7 @@ class Pawn < Piece
 
   def range
     rng = first_row? ? 2 : 1
-    (1..rng).map { sq + (Vector[0, 1] * @1 * @forward) }
+    (1..rng).map { |i| sq + (Vector[0, 1] * i * @forward) }
   end
 
   def possible_moves board

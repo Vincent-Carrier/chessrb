@@ -13,12 +13,11 @@ group :development do
   gem 'solargraph'
   gem 'rubocop-rspec'
   gem 'awesome_print', '~> 1.8'
-  gem 'pry', '~> 0.12.2'
-  gem 'pry-coolline', '~> 0.2.5'
-  gem 'pry-byebug', '~> 3.7'
-  gem 'pry-rescue', '~> 1.5'
-  gem 'pry-stack_explorer'
-  gem 'pry-inline'
+  gem 'pry'
+  gem 'pry-coolline'
+  gem 'pry-byebug'
+  gem 'pry-rescue'
+  # gem 'pry-inline'
   gem 'pry-doc'
 end
 

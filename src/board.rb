@@ -8,13 +8,12 @@ class Board
   def initialize arr, history = []
     @arr = arr
     @history = history
-    @black_pieces, @white_pieces = [], []
+    @pieces = { white: [], black: [] }
     @arr.each.with_index do |row, y|
       row.each.with_index do |piece, x|
         if piece
-          piece.sq = Vector[x,y]
-          pieces = piece.color == :white ? @white_pieces : @black_pieces
-          pieces << piece
+          piece.sq = Vector[x, y]
+          @pieces[piece.color] << piece
         end
       end
     end
@@ -34,26 +33,34 @@ class Board
 
   def [] i
     case i
-    when String then self[Sq i]
+    when String then self[sq i]
     when Vector then @arr[i.y][i.x]
     end
   end
 
   def []= sq, v
-    case sq; when String then sq = Sq(sq); end
+    case sq; when String then sq = sq(sq); end
+    at = @arr[sq.y][sq.x]
+    @pieces[at.color].delete(at) if at.is_a? Piece
     @arr[sq.y][sq.x] = v
     v.sq = sq if v.is_a? Piece
   end
 
-  def self.squares squares
-    str = Board.empty.inspect.lines
-    squares.each { |sq| str[sq.y][sq.x] = 'X' }
-    str.join ''
+  def << piece
+    self[piece.sq] = piece
+  end
+
+  def each_piece color
+    if block_given?
+      @pieces[color].each { |p| yield p }
+    else
+      @pieces[color].each
+    end
   end
 
   def inspect
     "\n" + @arr.map do |row|
-      row.map { |p| p ? p.to_char : '_' }.join
+      row.map { |p| p ? p.to_char : '·' }.join
     end.join("\n")
   end
 end
